@@ -25,25 +25,108 @@
         }
         
         /* Hero Section */
+        .logo-box {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #fbfbfb;
+            width: 100px;
+            height: 50px;
+            border-radius: 20%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+        }
+
+        .logo-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
         .hero {
             background: linear-gradient(135deg, #0097a0 0%, #034b51 100%);
             color: white;
-            padding: 60px 20px;
+            padding: 100px 20px 60px;
+            position: relative;
+        }
+
+        .hero-box {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 40px;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-left {
+            flex: 1;
+            position: relative;
+            padding-bottom: 60px;
+        }
+
+        .img-main {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            object-position: top;
+            border-radius: 16px;
+            background-color: rgb(163, 160, 160);
         }
         
-        .hero-content h1 {
-            font-size: 48px;
-            font-weight: 600;
-            margin-bottom: 30px;
-            line-height: 1.3;
+        .img-overlap {
+            width: 50%;
+            height: 100px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 5px;
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-60%) translateY(45%);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 10;
         }
         
-        .hero-content p {
+        .hero-right {
+            flex: 1.2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero-right h1 {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .hero-right p {
             font-size: 18px;
-            margin-bottom: 40px;
-            line-height: 1.8;
+            margin-bottom: 15px;
+            line-height: 1.7;
         }
-        
+
+        .hero-right .subtext {
+            font-size: 16px;
+            opacity: 0.95;
+        }
+
+        @media (max-width: 768px) {
+            .hero-box {
+                flex-direction: column;
+            }
+
+            .hero-right h1 {
+                font-size: 28px;
+            }
+        }
+
         /* Why Choose Section */
         .why-choose {
             background-color: white;
@@ -66,7 +149,7 @@
         }
         
         .feature-box {
-            background: white;
+            background: rgba(255, 255, 255, 0.15);
             padding: 30px;
             border: 1px solid #EBEBEB;
             border-radius: 24px;
@@ -74,8 +157,23 @@
         }
         
         .feature-icon {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #0097a0 0%, #034b51 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: 48px;
-            margin-bottom: 20px;
+        }
+        
+        .feature-icon img {
+            width: 75%;
+            height: 75%;
+            object-fit: cover;
+            object-position: top;
+            border-radius: 8px;
         }
         
         .feature-box h3 {
@@ -85,6 +183,150 @@
             line-height: 1.5;
         }
         
+        /* Services Specialties */
+        .services {
+            background-color: white;
+            padding: 60px 20px;
+        }
+
+        .category-title {
+            font-size: 28px;
+            font-weight: 600;
+            color: #f25822;
+            margin: 0 0 60px 0;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        .service-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .service-cards.center-last-two {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+
+        .service-cards.center-last-two .service-card:nth-last-child(-n+2) {
+            grid-column: span 1;
+        }
+
+        .centered-cards-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .centered-cards-wrapper .service-card {
+            width: calc(33.333% - 17px);
+            min-width: 280px;
+            margin-bottom: 40px;
+        }
+
+        .service-card {
+            background: white;
+            border: 1px solid #18979d;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card-header {
+            background: linear-gradient(135deg, #18979d 0%, #034b51 100%);
+            color: white;
+            padding: 20px;
+            height: 20%;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .service-card-header h3 {
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .service-card-body {
+            padding: 20px;
+            background: #f9f9f9;
+            height: 20%;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .service-card-body p {
+            font-size: 14px;
+            color: #363636;
+            text-align: center;
+            font-weight: 300;
+        }
+
+        .service-card-image {
+            width: 100%;
+            height: 60%;
+            min-height: 200px;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: #999;
+        }
+
+        .service-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+        }
+
+        .cta-button {
+            display: block;
+            margin: 60px auto;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #18979d 0%, #034b51 100%);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+        }
+
+        .cta-button.enquire {
+            background: linear-gradient(135deg, #18979d 0%, #034b51 100%);
+        }
+
+        .form-container .cta-button {
+            margin: 20px auto;
+            background: linear-gradient(135deg, #f06634 0%, #fe6600 100%);
+        }
+
+        @media (max-width: 768px) {
+            .centered-cards-wrapper .service-card {
+                width: 100%;
+            }
+        }
+
         /* How it Works */
         .how-it-works {
             background: linear-gradient(135deg, #0097a0 0%, #034b51 100%);
@@ -111,8 +353,23 @@
         }
         
         .step-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 15px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: 50px;
-            margin-bottom: 15px;
+        }
+        
+        .step-icon img {
+            width: 80%;
+            height: 80%;
+            object-fit: cover;
+            object-position: top;
+            border-radius: 8px;
         }
         
         .step h3 {
@@ -120,112 +377,42 @@
             font-weight: 600;
             margin-bottom: 10px;
         }
-        
-        /* Services Specialties */
-        .services {
-            background-color: white;
-            padding: 80px 20px;
-        }
-        
-        .category-title {
-            font-size: 28px;
-            font-weight: 600;
-            color: #f25822;
-            margin: 60px 0 40px 0;
-            text-align: center;
-            letter-spacing: 1px;
-        }
-        
-        .service-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-bottom: 40px;
-        }
-        
-        .service-card {
-            background: white;
-            border: 1px solid #18979d;
-            border-radius: 20px;
-            overflow: hidden;
-            transition: transform 0.3s ease;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .service-card-header {
-            background: linear-gradient(135deg, #18979d 0%, #034b51 100%);
-            color: white;
-            padding: 30px 20px;
-            min-height: 100px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-        
-        .service-card-header h3 {
-            font-size: 16px;
-            font-weight: 600;
-            line-height: 1.3;
-        }
-        
-        .service-card-body {
-            padding: 30px 20px;
-            background: #f9f9f9;
-            min-height: 100px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .service-card-body p {
-            font-size: 14px;
-            color: #363636;
-            text-align: center;
-            font-weight: 300;
-        }
-        
-        .service-card-image {
-            width: 100%;
-            height: 150px;
-            background: linear-gradient(135deg, #0097a0 0%, #034b51 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 60px;
-        }
-        
-        /* CTA Button */
-        .cta-button {
-            display: block;
-            width: 180px;
-            margin: 30px auto;
-            padding: 15px;
-            background: linear-gradient(135deg, #fe6600 0%, #f25822 100%);
-            color: white;
-            border: none;
-            border-radius: 9px;
-            font-size: 18px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            text-align: center;
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(242, 88, 34, 0.3);
-        }
-        
+
         /* Testimonials */
         .testimonials {
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><rect fill="%23f5f5f5" width="1200" height="400"/></svg>');
-            background-size: cover;
+            position: relative;
             padding: 80px 20px;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .testimonials::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('imgaes/last_hope.jpeg');
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+        }
+
+        .testimonials-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1140px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        .testimonials .section-title {
+            color: white;
+            margin-bottom: 60px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
         
         .testimonial-cards {
@@ -235,7 +422,8 @@
         }
         
         .testimonial-card {
-            background: white;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
             padding: 30px;
             border-radius: 15px;
             border-left: 5px solid #0097a0;
@@ -244,16 +432,18 @@
         
         .testimonial-text {
             font-size: 14px;
-            color: #555;
+            color: white;
             margin-bottom: 15px;
             font-style: italic;
             line-height: 1.6;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
         }
         
         .testimonial-author {
             font-weight: 600;
-            color: #0097a0;
+            color: #ffd700;
             font-size: 14px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
         }
         
         /* Form Section */
@@ -261,14 +451,38 @@
             background: white;
             padding: 60px 20px;
         }
+
+        .form-section-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1140px;
+            margin: 0 auto 60px;
+        }
+
+        .form-image {
+            width: 100%;
+            height: 500px;
+            background-color: transparent;
+            border-radius: 20px;
+            overflow: hidden;
+            order: 2;
+        }
+
+        .form-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
         
         .form-container {
             background: white;
             border: 1px solid #cfcfcf;
             border-radius: 32px;
             padding: 40px;
-            max-width: 400px;
-            margin: 0 auto;
+            max-width: 100%;
+            order: 1;
         }
         
         .form-container h2 {
@@ -299,7 +513,7 @@
         .form-group label {
             display: block;
             margin-bottom: 8px;
-            font-size: 12px;
+            font-size: 16px;
             font-weight: 500;
             color: #212121;
         }
@@ -314,9 +528,32 @@
         
         .checkbox-group label {
             display: inline;
-            font-size: 12px;
+            font-size: 14px;
             cursor: pointer;
         }
+        
+        /* Stats */
+        /* .stats-box {
+            background: linear-gradient(135deg, #0097a0 0%, #034b51 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 30px 0;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .stats-box h3 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .stats-box p {
+            font-size: 16px;
+        } */
         
         /* Footer */
         footer {
@@ -360,6 +597,43 @@
             color: #999;
         }
         
+        .footer-bottom a {
+            color: #0097a0;
+            text-decoration: none;
+        }
+        
+        /* Floating Button */
+        .floating-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #f06634 0%, #fe6600 100%);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(254, 102, 0, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            z-index: 999;
+        }
+
+        .floating-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(254, 102, 0, 0.6);
+        }
+
+        @media (max-width: 768px) {
+            .floating-btn {
+                bottom: 20px;
+                right: 20px;
+                padding: 12px 20px;
+                font-size: 14px;
+            }
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .hero-content h1 {
@@ -382,32 +656,39 @@
                 margin: -20px -20px 20px -20px;
                 font-size: 14px;
             }
-        }
-        
-        .stats-box {
-            background: linear-gradient(135deg, #0097a0 0%, #034b51 100%);
-            color: white;
-            padding: 30px;
-            border-radius: 8px;
-            text-align: center;
-            margin: 30px 0;
-        }
-        
-        .stats-box h3 {
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 10px;
+
+            .form-section-wrapper {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .form-image {
+                height: 250px;
+            }
         }
     </style>
 </head>
 <body>
     <!-- Hero Section -->
     <section class="hero">
-        <div class="container">
-            <div class="hero-content">
+        <div class="logo-box">
+            <img src="imgaes/logo.png" alt="Logo">
+        </div>
+
+        <div class="hero-box">
+           <div class="hero-left">
+                <img class="img-main" src="imgaes/first.png" alt="Physiotherapy">
+                <img class="img-overlap" src="imgaes/images2.png" alt="Extra Image">
+            </div>
+
+            <div class="hero-right">
                 <h1>Say goodbye to pain and hello to relief</h1>
                 <p>With Portea's Personalised Physiotherapy Treatment At Home</p>
-                <p style="font-size: 16px; opacity: 0.9;">Our certified and experienced Physiotherapist have expertise in a wide range of specialties which includes neurological issues, neuro-musculoskeletal, cardiovascular and respiratory. The physiotherapy session our conducted in the comfort of your home.</p>
+                <p class="subtext">
+                    Our certified and experienced Physiotherapists have expertise in neurological issues, 
+                    neuro-musculoskeletal, cardiovascular and respiratory care. 
+                    Your physiotherapy sessions are conducted in the comfort of your home.
+                </p>
             </div>
         </div>
     </section>
@@ -418,57 +699,40 @@
             <h2 class="section-title">WHY CHOOSE PORTEA?</h2>
             <div class="features-grid">
                 <div class="feature-box">
-                    <div class="feature-icon">💼</div>
+                    <div class="feature-icon">
+                        <img src="imgaes/image25.png" alt="Personalized care">
+                    </div>
                     <h3>Personalized care</h3>
                 </div>
                 <div class="feature-box">
-                    <div class="feature-icon">💰</div>
+                    <div class="feature-icon">
+                        <img src="imgaes/image26.png" alt="Convenience">
+                    </div>
                     <h3>Convenience & cost effectiveness</h3>
                 </div>
                 <div class="feature-box">
-                    <div class="feature-icon">✨</div>
+                    <div class="feature-icon">
+                        <img src="imgaes/image31.png" alt="Quality">
+                    </div>
                     <h3>Improved quality of life</h3>
                 </div>
                 <div class="feature-box">
-                    <div class="feature-icon">👨‍⚕️</div>
+                    <div class="feature-icon">
+                        <img src="imgaes/image28.png" alt="Experts">
+                    </div>
                     <h3>Expert physiotherapists</h3>
                 </div>
                 <div class="feature-box">
-                    <div class="feature-icon">⏰</div>
+                    <div class="feature-icon">
+                        <img src="imgaes/image30.png" alt="Time">
+                    </div>
                     <h3>Better time management</h3>
                 </div>
                 <div class="feature-box">
-                    <div class="feature-icon">⚡</div>
+                    <div class="feature-icon">
+                        <img src="imgaes/image29.png" alt="Healing">
+                    </div>
                     <h3>Faster healing process</h3>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- How It Works -->
-    <section class="how-it-works">
-        <div class="container">
-            <h2>HOW DOES IT WORK?</h2>
-            <div class="steps-grid">
-                <div class="step">
-                    <div class="step-icon">📞</div>
-                    <h3>Book A Session</h3>
-                    <p>Schedule at your convenience</p>
-                </div>
-                <div class="step">
-                    <div class="step-icon">👨‍⚕️</div>
-                    <h3>Physiotherapist Visit</h3>
-                    <p>Expert arrives at your home</p>
-                </div>
-                <div class="step">
-                    <div class="step-icon">📋</div>
-                    <h3>Assessment On Call</h3>
-                    <p>Complete evaluation & plan</p>
-                </div>
-                <div class="step">
-                    <div class="step-icon">✅</div>
-                    <h3>Create Treatment Plan</h3>
-                    <p>Personalized recovery program</p>
                 </div>
             </div>
         </div>
@@ -486,7 +750,9 @@
                     <div class="service-card-body">
                         <p>Restore movement and independence with guided neuro-rehab.</p>
                     </div>
-                    <div class="service-card-image">🧠</div>
+                    <div class="service-card-image">
+                        <img src="imgaes/imges3.jpg" alt="Paraplegia">
+                    </div>
                 </div>
                 <div class="service-card">
                     <div class="service-card-header">
@@ -495,7 +761,9 @@
                     <div class="service-card-body">
                         <p>Improve balance, posture, and mobility with specialised exercises.</p>
                     </div>
-                    <div class="service-card-image">⚖️</div>
+                    <div class="service-card-image">
+                        <img src="imgaes/images4.png" alt="Parkinson's">
+                    </div>
                 </div>
                 <div class="service-card">
                     <div class="service-card-header">
@@ -504,8 +772,14 @@
                     <div class="service-card-body">
                         <p>Enhance coordination, stability, and motor control.</p>
                     </div>
-                    <div class="service-card-image">🎯</div>
+                    <div class="service-card-image">
+                        <img src="imgaes/image5.jpg" alt="Ataxia">
+                    </div>
                 </div>
+            </div>
+
+            <!-- Last 2 cards centered -->
+            <div class="centered-cards-wrapper">
                 <div class="service-card">
                     <div class="service-card-header">
                         <h3>Cerebral Palsy / Delayed Milestone</h3>
@@ -513,7 +787,9 @@
                     <div class="service-card-body">
                         <p>Support motor skills, mobility, and developmental progress.</p>
                     </div>
-                    <div class="service-card-image">👶</div>
+                    <div class="service-card-image">
+                        <img src="imgaes/image6.jpeg" alt="Palsy">
+                    </div>
                 </div>
                 <div class="service-card">
                     <div class="service-card-header">
@@ -522,7 +798,9 @@
                     <div class="service-card-body">
                         <p>Rebuild balance, coordination, and cognition for daily life.</p>
                     </div>
-                    <div class="service-card-image">🏥</div>
+                    <div class="service-card-image">
+                        <img src="imgaes/image7.png" alt="TBI">
+                    </div>
                 </div>
             </div>
 
@@ -535,7 +813,9 @@
                     <div class="service-card-body">
                         <p>Rebuild strength, stability, and confidence after injury or surgery.</p>
                     </div>
-                    <div class="service-card-image">🦵</div>
+                    <div class="service-card-image">
+                        <img src="imgaes/image8.png" alt="Tear">
+                    </div>
                 </div>
                 <div class="service-card">
                     <div class="service-card-header">
@@ -544,7 +824,9 @@
                     <div class="service-card-body">
                         <p>Regain mobility and walk independently after surgery.</p>
                     </div>
-                    <div class="service-card-image">🚶</div>
+                    <div class="service-card-image">
+                        <img src="imgaes/image9.png" alt="Replacement">
+                    </div>
                 </div>
                 <div class="service-card">
                     <div class="service-card-header">
@@ -553,7 +835,9 @@
                     <div class="service-card-body">
                         <p>Relieve back pain, improve flexibility, and strengthen support.</p>
                     </div>
-                    <div class="service-card-image">🔙</div>
+                    <div class="service-card-image">
+                        <img src="imgaes/image10.jpg" alt="Lumbar">
+                    </div>
                 </div>
                 <div class="service-card">
                     <div class="service-card-header">
@@ -562,7 +846,9 @@
                     <div class="service-card-body">
                         <p>Reduce neck pain, improve posture, and restore mobility.</p>
                     </div>
-                    <div class="service-card-image">🧣</div>
+                    <div class="service-card-image">
+                        <img src="imgaes/image11.jpg" alt="Cervical">
+                    </div>
                 </div>
                 <div class="service-card">
                     <div class="service-card-header">
@@ -571,7 +857,9 @@
                     <div class="service-card-body">
                         <p>Structured recovery to restore movement and reduce pain.</p>
                     </div>
-                    <div class="service-card-image">💪</div>
+                    <div class="service-card-image">
+                        <img src="imgaes/image12.jpg" alt="Laminectomy">
+                    </div>
                 </div>
                 <div class="service-card">
                     <div class="service-card-header">
@@ -580,7 +868,9 @@
                     <div class="service-card-body">
                         <p>Relieve stiffness, restore movement, and ease shoulder pain.</p>
                     </div>
-                    <div class="service-card-image">💆</div>
+                    <div class="service-card-image">
+                        <img src="imgaes/image13.jpg" alt="Shoulder">
+                    </div>
                 </div>
                 <div class="service-card">
                     <div class="service-card-header">
@@ -589,7 +879,9 @@
                     <div class="service-card-body">
                         <p>Gentle therapy to ease pain and improve flexibility.</p>
                     </div>
-                    <div class="service-card-image">🤝</div>
+                    <div class="service-card-image">
+                        <img src="imgaes/image14.jpeg" alt="Polyarthralgia">
+                    </div>
                 </div>
                 <div class="service-card">
                     <div class="service-card-header">
@@ -598,7 +890,9 @@
                     <div class="service-card-body">
                         <p>Restore flexibility, movement, and strength.</p>
                     </div>
-                    <div class="service-card-image">🧘</div>
+                    <div class="service-card-image">
+                        <img src="imgaes/image15.jpg" alt="Muscle">
+                    </div>
                 </div>
                 <div class="service-card">
                     <div class="service-card-header">
@@ -607,8 +901,14 @@
                     <div class="service-card-body">
                         <p>Improve stability, coordination, and confidence in walking.</p>
                     </div>
-                    <div class="service-card-image">👫</div>
+                    <div class="service-card-image">
+                        <img src="imgaes/image16.jpg" alt="Gait">
+                    </div>
                 </div>
+            </div>
+
+            <h2 class="category-title">GENERAL AND GERIATRIC</h2>
+            <div class="centered-cards-wrapper">
                 <div class="service-card">
                     <div class="service-card-header">
                         <h3>Post-Surgical / Fracture Rehab</h3>
@@ -616,7 +916,9 @@
                     <div class="service-card-body">
                         <p>Safe recovery to restore strength and mobility.</p>
                     </div>
-                    <div class="service-card-image">🩹</div>
+                    <div class="service-card-image">
+                        <img src="imgaes/image17.jpg" alt="Surgical">
+                    </div>
                 </div>
                 <div class="service-card">
                     <div class="service-card-header">
@@ -625,8 +927,13 @@
                     <div class="service-card-body">
                         <p>Improve strength, independence, and daily function in older adults.</p>
                     </div>
-                    <div class="service-card-image">👴</div>
+                    <div class="service-card-image">
+                        <img src="imgaes/image17.jpeg" alt="Geriatric">
+                    </div>
                 </div>
+            </div>
+
+            <div class="centered-cards-wrapper">
                 <div class="service-card">
                     <div class="service-card-header">
                         <h3>ICU-Acquired / General Weakness</h3>
@@ -634,7 +941,9 @@
                     <div class="service-card-body">
                         <p>Rebuild strength, stamina, and functional independence.</p>
                     </div>
-                    <div class="service-card-image">🏋️</div>
+                    <div class="service-card-image">
+                        <img src="imgaes/image18.png" alt="ICU">
+                    </div>
                 </div>
                 <div class="service-card">
                     <div class="service-card-header">
@@ -643,17 +952,56 @@
                     <div class="service-card-body">
                         <p>Reduce swelling, ease pain, and restore joint movement.</p>
                     </div>
-                    <div class="service-card-image">🧊</div>
+                    <div class="service-card-image">
+                        <img src="imgaes/image19.png" alt="Inflammation">
+                    </div>
                 </div>
             </div>
             
-            <button class="cta-button">Enquire Now</button>
+            <button class="cta-button enquire" onclick="scrollToForm()">Enquire Now</button>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2>HOW DOES IT WORK?</h2>
+            <div class="steps-grid">
+                <div class="step">
+                    <div class="step-icon">
+                        <img src="imgaes/image21.png" alt="Book">
+                    </div>
+                    <h3>Book A Session</h3>
+                    <p>Schedule at your convenience</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <img src="imgaes/image22.png" alt="Visit">
+                    </div>
+                    <h3>Physiotherapist Visit</h3>
+                    <p>Expert arrives at your home</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <img src="imgaes/image23.png" alt="Assessment">
+                    </div>
+                    <h3>Assessment On Call</h3>
+                    <p>Complete evaluation & plan</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <img src="imgaes/image24.png" alt="Plan">
+                    </div>
+                    <h3>Create Treatment Plan</h3>
+                    <p>Personalized recovery program</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Form Section -->
     <section class="form-section">
-        <div class="container">
+        <div class="form-section-wrapper">
             <div class="form-container">
                 <h2>SCHEDULE YOUR SESSION</h2>
                 <form onsubmit="handleSubmit(event)">
@@ -684,19 +1032,22 @@
                     <button type="submit" class="cta-button">BOOK NOW</button>
                 </form>
             </div>
-
-            <div class="stats-box" style="max-width: 500px; margin: 60px auto;">
-                <h3>2000+</h3>
-                <p>Physiotherapists</p>
-                <h3 style="margin-top: 20px;">4.8</h3>
-                <p>Google Rating</p>
+            <div class="form-image">
+                <img src="imgaes/image40.avif" alt="Schedule Session">
             </div>
         </div>
+
+        <!-- <div class="stats-box">
+            <h3>2000+</h3>
+            <p>Physiotherapists</p>
+            <h3 style="margin-top: 20px;">4.8</h3>
+            <p>Google Rating</p>
+        </div> -->
     </section>
 
     <!-- Testimonials -->
     <section class="testimonials">
-        <div class="container">
+        <div class="testimonials-content">
             <h2 class="section-title">TESTIMONIALS</h2>
             <div class="testimonial-cards">
                 <div class="testimonial-card">
@@ -750,7 +1101,15 @@
         </div>
     </footer>
 
+    <!-- Floating Button -->
+    <button class="floating-btn" onclick="scrollToForm()">Book Now</button>
+
     <script>
+        function scrollToForm() {
+            const formSection = document.querySelector('.form-section');
+            formSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
         function handleSubmit(event) {
             event.preventDefault();
             alert('Thank you for booking! We will contact you soon.');
